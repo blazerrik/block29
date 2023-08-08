@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function SinglePlayer({ player, setselectedPlayerId }) {
+export default function SinglePlayer({ player, setselectedPlayerId,searchPlayers }) {
   const navigate = useNavigate();
   return (
     <Card style={{ width: "18rem" }} className="h-100">

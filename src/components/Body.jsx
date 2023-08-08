@@ -5,8 +5,6 @@ import { useState } from "react";
 export default function Body(){
     const [selectedPlayerId, setselectedPlayerId] = useState(null);
     
-
-
 return(
     <>
     

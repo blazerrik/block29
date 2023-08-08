@@ -13,7 +13,18 @@ export default function SearchPlayers(){
     const { str } = useParams();
     const [filterPlayers , setFilterPlayers] = useState([]);
 
-    
+    const filterPosts = (posts, query) => {
+      
+      if (!query) {
+          return posts;
+      }
+      return posts.filter((post) => {
+          const postName = post.name.toLowerCase();
+          return postName.includes(query);
+      });
+  };
+
+
 
     useEffect(() => {
         async function fetchPlayers() {
@@ -23,16 +34,14 @@ export default function SearchPlayers(){
             );
             const result = await response.json();
             
+           
             setPlayers(result.data.players)
 
-            players.filter(
-              (player) =>{
-                player.name=== str
-              }
-            )
+            //setFilterPlayers(filterPosts(players,str));
 
 
-            
+            console.log(filterPosts(players,str))
+
            
           } catch (error) {
 

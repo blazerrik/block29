@@ -6,21 +6,20 @@ import NavbarPlayers from "./components/NavbarPlayers";
 import DetailsPlayer from "./components/DetailsPlayer";
 import NewPlayer from "./components/NewPlayer";
 import AllPlayers from "./components/AllPlayers";
-import SearchPlayers from "./components/SearchPlayers";
+
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [search, setSearch] = useState("");
 
   return (
     <>
-         <Routes>
-        <Route path="/" element={<Body/>}/>
+      <Routes>
+        <Route path="/" element={<AllPlayers search={search} setSearch={setSearch}/>}/>
         <Route path="/Player/:id" element={<DetailsPlayer/>} />
         <Route path="/NewPlayer/" element={<NewPlayer/>} />
-        <Route path="/Search/:str" element={<SearchPlayers/>} />
 
       </Routes>
-      <NavbarPlayers />
+      <NavbarPlayers  search={search} setSearch={setSearch} />
       
     </>
   );

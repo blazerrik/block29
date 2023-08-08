@@ -4,23 +4,17 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { useNavigate } from "react-router-dom";
-import AllPlayers from "./AllPlayers";
 
-export default function NavbarPlayers() {
+import { useNavigate } from "react-router-dom";
+
+export default function NavbarPlayers({search,setSearch}) {
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+  //const [searchNav, setSearchNav] = useState(search);
 
   function callSearch(event) {
     event.preventDefault();
+    
 
-    try {
-      navigate(`/Search/${search}`);
-
-    } catch (error) {
-      console.log(error.message);
-    }
   }
 
   return (
